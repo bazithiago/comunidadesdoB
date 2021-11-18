@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const FormStyles = styled.form`
+const FormStyles = styled.form`
     display: flex;
     flex-direction: column;
     width: 20%

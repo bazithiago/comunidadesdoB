@@ -7,10 +7,14 @@ const FooterStyles = styled.footer`
     text-align: center;
     padding: 6px 32px;
     font-size: 0.75rem;
-    margin-bottom: 32px;
 
     a {
        color: blue !important;
+    }
+
+    @media screen and (max-width: 795px) {
+        width: 80vw;
+        padding: 6px;
     }
 `
 

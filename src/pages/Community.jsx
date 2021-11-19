@@ -14,6 +14,8 @@ const Canvas = styled.div`
     display: flex;
     flex-direction: column;
     gap: 16px;
+    background-color:#d3ddf0;
+    padding: 8px;
    
     > div {
         display: flex;
@@ -70,6 +72,7 @@ const ButtonsPanel = styled.div`
             color: #274d82;
             font-weight: 700;
             font-size: 0.9rem;
+            margin-top: 32px;
         }
 
         button + button {

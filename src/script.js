@@ -36,3 +36,5 @@ if (typeof console === 'object') {
 console.log('// To test a local CORS Anywhere server, set cors_api_url. For example:');
 console.log('cors_api_url = "http://localhost:8080/"');
 }
+
+console.log('passou no script')

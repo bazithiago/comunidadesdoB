@@ -5,6 +5,7 @@ import { useLocation, Link } from 'react-router-dom';
 import logoOrkut from '../img/logoOrkut.png'
 import Footer from '../components/Footer'
 
+
 const CommunityStyles = styled.div`
     display: flex;
     flex-direction: column;
@@ -85,7 +86,6 @@ export function Community(){
     const location = useLocation();
     const { title, description, imgURL} = location.state.community;
 
-    
 
     const ref = useRef(null)
     const onButtonClick = useCallback(() => {

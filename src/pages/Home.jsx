@@ -54,6 +54,11 @@ const InfoStyles = styled.div`
         font-size: 0.85rem;
     }
 
+    span {
+        font-size: 0.85rem;
+        margin-top: 5px;
+    }
+
     @media screen and (max-width: 795px) {
         padding: 32px;
         text-align: center;
@@ -129,7 +134,8 @@ export function Home(){
                 <InfoStyles>
                     <img src={logoOrkut} alt="Logo orkut" />
                     <p><strong>Comunidades do</strong> B!</p>
-                    <p className='info'>Projeto originalmente nascido de <a href='https://twitter.com/pagalanxe/status/1461039166129594368?s=20' target='_blank' rel="noreferrer">uma thread do twitter</a>.</p>
+                    <p>Projeto originalmente nascido de <a href='https://twitter.com/pagalanxe/status/1461039166129594368?s=20' target='_blank' rel="noreferrer">uma thread do twitter</a>.</p>
+                    <span>Prefira o acesso no computador, com Chrome ou Firefox.</span>
                 </InfoStyles>
                 <FormStyles onSubmit={handleSubmit}>
                     <label htmlFor="title">Título da comunidade</label>

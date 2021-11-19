@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer'
 
 const HomeStyles = styled.main`
     display: flex;
@@ -77,15 +78,6 @@ const FormStyles = styled.form`
     }
 `
 
-const Footer = styled.footer`
-    width: 100%;
-    background-color: #b7cbea;
-    color: #333;
-    text-align: center;
-    padding: 4px 32px;
-    font-size: 0.9rem;
-`
-
 
 export function Home(){
     const [title, setTitle] = useState('')
@@ -119,19 +111,17 @@ export function Home(){
                     <span>Copiar e colar uma URL válida (com final .jpg ou .png)</span>
                     <input type="textarea" name="imgURL" value={imgURL} onChange={(e) => setImgURL(e.target.value)} required />
                     
-                        <Link 
-                            as='a' 
-                            to='/community' 
-                            state={{ community }}
-                        >
-                             Criar comunidade
-                        </Link>
-                   
+                    <Link 
+                        as='a' 
+                        to='/community' 
+                        state={{ community }}
+                    >
+                        Criar comunidade
+                    </Link>
+                
                 </FormStyles>
             </div>
-            <Footer>
-                oi
-            </Footer>
+            <Footer />
         </HomeStyles>
     )
 }

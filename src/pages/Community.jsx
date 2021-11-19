@@ -1,13 +1,14 @@
 import React, { useCallback, useRef } from 'react';
 import styled from 'styled-components';
 import { toPng } from 'html-to-image';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import logoOrkut from '../img/logoOrkut.png'
+import Footer from '../components/Footer'
 
 const CommunityStyles = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;    
 `
 const Canvas = styled.div`
     display: flex;
@@ -56,18 +57,24 @@ const Canvas = styled.div`
     }
 
 `
-const Footer = styled.footer`
-    width: 100%;
-    background-color: #b7cbea;
-    color: #333;
-    text-align: center;
-    padding: 4px 32px;
-    font-size: 0.9rem;
-    margin-bottom: 32px;
 
-    a {
-       color: blue;
-    }
+
+const ButtonsPanel = styled.div`
+
+        button {
+            height: 36px;
+            padding: 8px 32px;
+            background-color: #f6f6f4;
+            border-radius: 32px;
+            border: 1px solid #ccc;
+            color: #274d82;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        button + button {
+            margin-left: 16px;
+        }
 `
 
 
@@ -101,23 +108,22 @@ export function Community(){
         <CommunityStyles>
             <Canvas ref={ref}>
                 <div> 
-                    {/* <img src={`https://cors-anywhere.herokuapp.com/${imgURL}`} alt="Imagem" /> */}
                     <img src={`https://cors-anywhere.herokuapp.com/${imgURL}`} alt="Imagem" crossOrigin=""/>
                     <div className='CommunityInfos'>
                         <div>
                             <img src={logoOrkut} alt="logo"/>
                             <p><strong>Comunidades do</strong> B!</p>
                         </div>
-                        <h1>{title}</h1>
-                        <p><strong>Descrição:</strong> {description}</p>
+                        <h1>{title || 'Volte e preencha o campo corretamente'}</h1>
+                        <p><strong>Descrição:</strong> {description || 'Volte e preencha o campo corretamente'}</p>
                     </div>
                 </div>
-                <Footer>
-                    Criação e layout: <a href='https://twitter.com/pagalanxe' target='_blank' rel="noreferrer">Bruno Predolin</a>   |   App por <a href='https://thiagovieira.dev' target='_blank' rel="noreferrer">thiagovieira.dev</a>
-                </Footer>
+                <Footer />
             </Canvas>
-
-            <button onClick={onButtonClick}>Download</button> 
+            <ButtonsPanel>
+                <button><Link as='a' to='/'>Voltar</Link> </button>
+                <button onClick={onButtonClick}>Download imagem</button> 
+            </ButtonsPanel>
         </CommunityStyles>
     )
 }

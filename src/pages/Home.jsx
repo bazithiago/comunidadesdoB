@@ -139,8 +139,9 @@ export function Home(){
                     <input type="textarea" name="description" value={description} onChange={(e) => setDescription(e.target.value)} required />
                     
                     <label htmlFor="imgURL">URL da imagem</label>
-                    <span>Copiar e colar uma URL válida (com final .jpg ou .png)</span>
                     <input type="textarea" name="imgURL" value={imgURL} onChange={(e) => setImgURL(e.target.value)} required />
+                    <span>Copiar e colar uma URL válida (com final .jpg ou .png)</span>
+                    <span>Dica: prefira imagens verticais</span>
                     
                     <Link 
                         as='a' 

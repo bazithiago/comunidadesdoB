@@ -56,7 +56,6 @@ const Canvas = styled.div`
     }
 
 `
-
 const Footer = styled.footer`
     width: 100%;
     background-color: #b7cbea;
@@ -76,6 +75,8 @@ export function Community(){
     const location = useLocation();
     const { title, description, imgURL} = location.state.community;
 
+    
+
     const ref = useRef(null)
     const onButtonClick = useCallback(() => {
         if (ref.current === null) {
@@ -94,21 +95,14 @@ export function Community(){
         })
     }, [ref])
 
-    // const ImgStyle = {
-    //     backgroundImage: `url(${imgURL})`,
-    //     width: '390px',
-    //     height: '560px',
-    //     borderRadius: '10px',
-    //     backgroundSize: 'cover',
-    //     backgroundRepeat: 'no-repeat',
-    //     backgroundPosition: 'center center',
-    // }
+
 
     return (
         <CommunityStyles>
             <Canvas ref={ref}>
                 <div> 
-                    <img src={imgURL} alt="Imagem" />
+                    {/* <img src={`https://cors-anywhere.herokuapp.com/${imgURL}`} alt="Imagem" /> */}
+                    <img src={`https://cors-anywhere.herokuapp.com/${imgURL}`} alt="Imagem" crossOrigin=""/>
                     <div className='CommunityInfos'>
                         <div>
                             <img src={logoOrkut} alt="logo"/>

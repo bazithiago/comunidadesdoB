@@ -3,7 +3,7 @@ import { Home } from './pages/Home'
 import { Community } from './pages/Community'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-function App() {
+function App() { 
   return (
     <>
       <GlobalStyle />

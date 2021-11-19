@@ -39,6 +39,7 @@ const InfoStyles = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
 
     img {
         width: 40%;
@@ -61,7 +62,6 @@ const InfoStyles = styled.div`
 
     @media screen and (max-width: 795px) {
         padding: 32px;
-        text-align: center;
     }
 `
 
@@ -72,7 +72,7 @@ const FormStyles = styled.form`
     height: 100%;
     background-color: #dde9f5;
     padding: 40px;
-    flex: 1;
+    /* flex: 1; */
 
     label {
         font-size: 0.9rem;
@@ -91,7 +91,7 @@ const FormStyles = styled.form`
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 36px;
+        padding: 8px;
         background-color: #f6f6f4;
         border-radius: 32px;
         border: 1px solid #ccc;

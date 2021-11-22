@@ -117,16 +117,31 @@ const FormStyles = styled.form`
 export function Home(){
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-    const [imgURL, setImgURL] = useState('')
-    const [community, setCommunity] = useState({ title, description, imgURL });
+    // const [imgURL, setImgURL] = useState('')
+    const [community, setCommunity] = useState({ title, description });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    }
+    
+    const imageUpload = (e) => {
+        const file = e.target.files[0];
+
+        const getBase64 = (file) => {
+            return new Promise((resolve,reject) => {
+               const reader = new FileReader();
+               reader.onload = () => resolve(reader.result);
+               reader.onerror = error => reject(error);
+               reader.readAsDataURL(file);
+            });
+          }
+          
+
+        getBase64(file).then(base64 => {
+          localStorage["imgLocal"] = base64;
+        });
+    };
 
     useEffect(() => {
-        setCommunity({ title, description, imgURL })
-    }, [title, description, imgURL])
+        setCommunity({ title, description })
+    }, [title, description])
 
     return (
         <HomeStyles>
@@ -137,17 +152,21 @@ export function Home(){
                     <p>Projeto originalmente nascido de <a href='https://twitter.com/pagalanxe/status/1461039166129594368?s=20' target='_blank' rel="noreferrer">uma thread do twitter</a>.</p>
                     <span>Prefira o acesso no computador, com Chrome ou Firefox.</span>
                 </InfoStyles>
-                <FormStyles onSubmit={handleSubmit}>
+                <FormStyles>
                     <label htmlFor="title">Título da comunidade</label>
                     <input type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)} required />
                     
                     <label htmlFor="description">Descrição da comunidade</label>
                     <input type="textarea" name="description" value={description} onChange={(e) => setDescription(e.target.value)} required />
                     
-                    <label htmlFor="imgURL">URL da imagem</label>
+                    {/* <label htmlFor="imgURL">URL da imagem</label>
                     <input type="textarea" name="imgURL" value={imgURL} onChange={(e) => setImgURL(e.target.value)} required />
-                    <span>Copiar e colar uma URL válida (com final .jpg ou .png)</span>
+                    <span>Copiar e colar uma URL válida (com final .jpg ou .png)</span> */}
+                    <label htmlFor="image">Upload imagem</label>
                     <span>Dica: prefira imagens verticais</span>
+                    <input type="file" onChange={imageUpload}/>
+
+
                     
                     <Link 
                         as='a' 

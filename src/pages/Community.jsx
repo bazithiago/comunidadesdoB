@@ -1,6 +1,7 @@
 import React, { useCallback, useRef } from 'react';
-import styled from 'styled-components';
 import { toPng } from 'html-to-image';
+
+import styled from 'styled-components';
 import { useLocation, Link } from 'react-router-dom';
 import logoOrkut from '../img/logoOrkut.png'
 import Footer from '../components/Footer'
@@ -9,19 +10,20 @@ import Footer from '../components/Footer'
 const CommunityStyles = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
 `
 const Canvas = styled.div`
     display: flex;
     flex-direction: column;
     gap: 16px;
     background-color:#d3ddf0;
-    padding: 8px;
+    padding: 16px;
    
     > div {
         display: flex;
         flex-direction: row;
         gap: 16px;
+
 
         > img {
             width: 390px;
@@ -60,8 +62,6 @@ const Canvas = styled.div`
     }
 
 `
-
-
 const ButtonsPanel = styled.div`
 
         button {
@@ -73,7 +73,7 @@ const ButtonsPanel = styled.div`
             color: #274d82;
             font-weight: 700;
             font-size: 0.9rem;
-            margin-top: 32px;
+            margin-top: 16px;
         }
 
         button + button {
@@ -82,36 +82,36 @@ const ButtonsPanel = styled.div`
 `
 
 
+
 export function Community(){
     const location = useLocation();
-    const { title, description, imgURL} = location.state.community;
+    const { title, description} = location.state.community;
+    const imgLocal = localStorage.getItem('imgLocal');
 
-
-    const ref = useRef(null)
+    const ref = useRef(null);
     const onButtonClick = useCallback(() => {
-        if (ref.current === null) {
+    if (ref.current === null) {
         return
-        }
+    }
 
-        toPng(ref.current, { cacheBust: true, })
+    toPng(ref.current, { cacheBust: true, })
         .then((dataUrl) => {
-            const link = document.createElement('a')
-            link.download = 'comunidade.png'
-            link.href = dataUrl
-            link.click()
+        const link = document.createElement('a')
+        link.download = 'comunidade.png'
+        link.href = dataUrl
+        link.click()
         })
         .catch((err) => {
-            console.log(err)
+        console.log(err)
         })
     }, [ref])
-
 
 
     return (
         <CommunityStyles>
             <Canvas ref={ref}>
                 <div> 
-                    <img src={`https://cors-anywhere.herokuapp.com/${imgURL}`} alt="Imagem" crossOrigin=""/>
+                    <img src={imgLocal} alt="Imagem" />
                     <div className='CommunityInfos'>
                         <div>
                             <img src={logoOrkut} alt="logo"/>

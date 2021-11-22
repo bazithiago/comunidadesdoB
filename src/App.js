@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
 function App() { 
+  localStorage.clear();
+
   return (
     <>
       <GlobalStyle />

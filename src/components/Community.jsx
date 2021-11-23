@@ -82,7 +82,7 @@ const ButtonsPanel = styled.div`
 
 
 
-export function Community(){
+export function Community({ previousScreen }){
     const title = localStorage.getItem('title'); 
     const description = localStorage.getItem('description'); 
     const imgLocal = localStorage.getItem('imgLocal');
@@ -123,7 +123,7 @@ export function Community(){
                 <Footer />
             </Canvas>
             <ButtonsPanel>
-                {/* <button><Link as='a' to='/'>Voltar</Link> </button> */}
+                <button onClick={previousScreen}>Voltar</button>
                 <button onClick={onButtonClick}>Download imagem</button> 
             </ButtonsPanel>
         </CommunityStyles>

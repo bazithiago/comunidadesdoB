@@ -45,7 +45,7 @@ const InfoStyles = styled.div`
     }
 
     a {
-        color: blue;
+        color: blue !important;
     }
 
     p + p {
@@ -148,10 +148,6 @@ export function Home({ nextScreen }){
         nextScreen();
     }
 
-    // useEffect(() => {
-    //     setCommunity({ title, description })
-    // }, [title, description])
-
     return (
         <HomeStyles>
             <div>
@@ -172,8 +168,10 @@ export function Home({ nextScreen }){
                     <input type="textarea" name="imgURL" value={imgURL} onChange={(e) => setImgURL(e.target.value)} required />
                     <span>Copiar e colar uma URL válida (com final .jpg ou .png)</span> */}
                     <label htmlFor="image">Upload imagem</label>
-                    <span>Dica: prefira imagens verticais</span>
-                    <input type="file" id='inputFile' accept=".png, .jpg, .jpeg" onChange={imageUpload}/>
+                    <input type="file" id='inputFile' accept=".png, .jpg, .jpeg" onChange={imageUpload} required/>
+                    <span>Dicas:</span>
+                    <span>prefira imagens <strong>verticais</strong></span>
+                    <span>e arquivos com menos de <strong>4MB</strong></span>
 
 
                     

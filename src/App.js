@@ -11,7 +11,6 @@ const screenStates = {
 
 
 function App() { 
-  // localStorage.clear();
   const [screenState, setScreenState] = useState(screenStates.HOME)
   
   function goToNextScreen() {
@@ -19,6 +18,7 @@ function App() {
   }
 
   function goToPreviousScreen() {
+    localStorage.clear();
     setScreenState(screenStates.HOME)
   }
 

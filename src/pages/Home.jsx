@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import logoOrkut from '../img/logoOrkut.png'
 
@@ -115,10 +114,11 @@ const FormStyles = styled.form`
 
 
 export function Home(){
+    const setItem = (key, value) => localStorage.setItem(`${key}`, `${value}`);
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     // const [imgURL, setImgURL] = useState('')
-    const [community, setCommunity] = useState({ title, description });
+    // const [community, setCommunity] = useState({ title, description });
 
     
     const imageUpload = (e) => {
@@ -146,15 +146,14 @@ export function Home(){
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (title || description === '') {
+        if (title.value || description.value === '') {
            window.alert("Preencha os campos");
-
         }
     }
 
-    useEffect(() => {
-        setCommunity({ title, description })
-    }, [title, description])
+    // useEffect(() => {
+    //     setCommunity({ title, description })
+    // }, [title, description])
 
     return (
         <HomeStyles>
@@ -167,27 +166,21 @@ export function Home(){
                 </InfoStyles>
                 <FormStyles onSubmit={handleSubmit}>
                     <label htmlFor="title">Título da comunidade</label>
-                    <input type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)} required />
+                    <input type="text" name="title" value={title} onChange={(e) => setTitle(setItem('title', e.target.value))} required />
                     
                     <label htmlFor="description">Descrição da comunidade</label>
-                    <input type="textarea" name="description" value={description} onChange={(e) => setDescription(e.target.value)} required />
+                    <input type="textarea" name="description" value={description} onChange={(e) => setDescription(setItem('description', e.target.value))} required />
                     
                     {/* <label htmlFor="imgURL">URL da imagem</label>
                     <input type="textarea" name="imgURL" value={imgURL} onChange={(e) => setImgURL(e.target.value)} required />
                     <span>Copiar e colar uma URL válida (com final .jpg ou .png)</span> */}
                     <label htmlFor="image">Upload imagem</label>
                     <span>Dica: prefira imagens verticais</span>
-                    <input type="file" id='inputFile' onChange={imageUpload}/>
+                    <input type="file" id='inputFile' accept=".png, .jpg, .jpeg" onChange={imageUpload}/>
 
 
                     
-                    <button type='submit' onClick={handleSubmit}><Link 
-                        as='a' 
-                        to='/community' 
-                        state={{ community }}
-                    >
-                        Criar comunidade
-                    </Link></button>
+                    <button type='submit'>Criar comunidade</button>
                 
                 </FormStyles>
             </div>

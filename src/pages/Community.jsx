@@ -2,7 +2,7 @@ import React, { useCallback, useRef } from 'react';
 import { toPng } from 'html-to-image';
 
 import styled from 'styled-components';
-import { useLocation, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logoOrkut from '../img/logoOrkut.png'
 import Footer from '../components/Footer'
 
@@ -84,8 +84,9 @@ const ButtonsPanel = styled.div`
 
 
 export function Community(){
-    const location = useLocation();
-    const { title, description} = location.state.community;
+    // const location = useLocation();
+    const title = localStorage.getItem('title'); 
+    const description = localStorage.getItem('description'); 
     const imgLocal = localStorage.getItem('imgLocal');
 
     const ref = useRef(null);

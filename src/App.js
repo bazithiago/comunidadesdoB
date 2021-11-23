@@ -4,8 +4,12 @@ import { Community } from './pages/Community'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
+
 function App() { 
-  localStorage.clear();
+  // localStorage.clear();
+  
+  
+
 
   return (
     <>

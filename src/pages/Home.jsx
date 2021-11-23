@@ -87,7 +87,7 @@ const FormStyles = styled.form`
         padding: 8px;
     }
 
-    button {
+    a {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -123,10 +123,6 @@ export function Home(){
     
     const imageUpload = (e) => {
         const file = e.target.files[0];
-        if (file.size > 4e6) {
-           window.alert("Subir um arquivo menor que 4MB");
-           document.location.reload(true);
-        }
 
         const getBase64 = (file) => {
             return new Promise((resolve,reject) => {
@@ -143,15 +139,6 @@ export function Home(){
         });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        if (title || description === '') {
-           window.alert("Preencha os campos");
-
-        }
-    }
-
     useEffect(() => {
         setCommunity({ title, description })
     }, [title, description])
@@ -165,7 +152,7 @@ export function Home(){
                     <p>Projeto originalmente nascido de <a href='https://twitter.com/pagalanxe/status/1461039166129594368?s=20' target='_blank' rel="noreferrer">uma thread do twitter</a>.</p>
                     <span>Prefira o acesso no computador, com Chrome ou Firefox.</span>
                 </InfoStyles>
-                <FormStyles onSubmit={handleSubmit}>
+                <FormStyles>
                     <label htmlFor="title">Título da comunidade</label>
                     <input type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)} required />
                     
@@ -177,17 +164,17 @@ export function Home(){
                     <span>Copiar e colar uma URL válida (com final .jpg ou .png)</span> */}
                     <label htmlFor="image">Upload imagem</label>
                     <span>Dica: prefira imagens verticais</span>
-                    <input type="file" id='inputFile' onChange={imageUpload}/>
+                    <input type="file" onChange={imageUpload}/>
 
 
                     
-                    <button type='submit' onClick={handleSubmit}><Link 
+                    <Link 
                         as='a' 
                         to='/community' 
                         state={{ community }}
                     >
                         Criar comunidade
-                    </Link></button>
+                    </Link>
                 
                 </FormStyles>
             </div>

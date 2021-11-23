@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components';
-import Footer from '../components/Footer';
+import Footer from './Footer';
 import logoOrkut from '../img/logoOrkut.png'
 
 
@@ -113,7 +113,7 @@ const FormStyles = styled.form`
 `
 
 
-export function Home(){
+export function Home({ nextScreen }){
     const setItem = (key, value) => localStorage.setItem(`${key}`, `${value}`);
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
@@ -145,10 +145,7 @@ export function Home(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        if (title.value || description.value === '') {
-           window.alert("Preencha os campos");
-        }
+        nextScreen();
     }
 
     // useEffect(() => {

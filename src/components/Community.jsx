@@ -1,10 +1,9 @@
 import React, { useCallback, useRef } from 'react';
+import styled from 'styled-components';
 import { toPng } from 'html-to-image';
 
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import logoOrkut from '../img/logoOrkut.png'
-import Footer from '../components/Footer'
+import Footer from './Footer'
 
 
 const CommunityStyles = styled.div`
@@ -84,7 +83,6 @@ const ButtonsPanel = styled.div`
 
 
 export function Community(){
-    // const location = useLocation();
     const title = localStorage.getItem('title'); 
     const description = localStorage.getItem('description'); 
     const imgLocal = localStorage.getItem('imgLocal');
@@ -125,7 +123,7 @@ export function Community(){
                 <Footer />
             </Canvas>
             <ButtonsPanel>
-                <button><Link as='a' to='/'>Voltar</Link> </button>
+                {/* <button><Link as='a' to='/'>Voltar</Link> </button> */}
                 <button onClick={onButtonClick}>Download imagem</button> 
             </ButtonsPanel>
         </CommunityStyles>

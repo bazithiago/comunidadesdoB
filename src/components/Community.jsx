@@ -86,7 +86,7 @@ const ButtonsPanel = styled.div`
             margin-left: 16px;
         }
 
-        
+
         @media screen and (max-width: 1024px) {
             display: flex;
             flex-direction: column;

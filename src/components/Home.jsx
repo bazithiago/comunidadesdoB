@@ -117,8 +117,6 @@ export function Home({ nextScreen }){
     const setItem = (key, value) => localStorage.setItem(`${key}`, `${value}`);
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-    // const [imgURL, setImgURL] = useState('')
-    // const [community, setCommunity] = useState({ title, description });
 
     
     const imageUpload = (e) => {
@@ -155,7 +153,7 @@ export function Home({ nextScreen }){
                     <img src={logoOrkut} alt="Logo orkut" />
                     <p><strong>Comunidades do</strong> B!</p>
                     <p>Projeto originalmente nascido de <a href='https://twitter.com/pagalanxe/status/1461039166129594368?s=20' target='_blank' rel="noreferrer">uma thread do twitter</a>.</p>
-                    <span>Prefira o acesso no computador, com Chrome ou Firefox.</span>
+                    <span>Prefira o acesso pelo navegador do <strong>computador</strong>, com Chrome ou Firefox.</span>
                 </InfoStyles>
                 <FormStyles onSubmit={handleSubmit}>
                     <label htmlFor="title">Título da comunidade</label>

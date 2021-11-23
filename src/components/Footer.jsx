@@ -13,7 +13,6 @@ const FooterStyles = styled.footer`
     }
 
     @media screen and (max-width: 795px) {
-        width: 80vw;
         padding: 6px;
     }
 `

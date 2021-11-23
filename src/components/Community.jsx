@@ -10,6 +10,10 @@ const CommunityStyles = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media screen and (max-width: 1024px) {
+        flex-direction: column-reverse;
+    }
 `
 const Canvas = styled.div`
     display: flex;
@@ -17,6 +21,9 @@ const Canvas = styled.div`
     gap: 16px;
     background-color:#d3ddf0;
     padding: 16px;
+    @media screen and (max-width: 1024px) {
+        transform: scale(0.5)
+    }
    
     > div {
         display: flex;
@@ -62,7 +69,7 @@ const Canvas = styled.div`
 
 `
 const ButtonsPanel = styled.div`
-
+    
         button {
             height: 36px;
             padding: 8px 32px;
@@ -78,6 +85,22 @@ const ButtonsPanel = styled.div`
         button + button {
             margin-left: 16px;
         }
+
+        
+        @media screen and (max-width: 1024px) {
+            display: flex;
+            flex-direction: column;
+
+        button {
+            width: 100%;
+        }
+
+        button + button {
+            margin-left: 0;
+        }
+    }
+
+
 `
 
 
